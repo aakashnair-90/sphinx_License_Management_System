@@ -1,5 +1,5 @@
+<app-navbar></app-navbar>
 <h2 style="margin-left: 38%; font-size: 50px;">User Dashboard</h2>
-
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
@@ -10,20 +10,21 @@
              <th></th>
               <th data-priority="1">License Name</th>
               <th data-priority="2">Price</th>
-              <th data-priority="4">Status</th>
+              <th data-priority="4">Description</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <!-- Display data rows -->
-            <ng-container *ngFor="let license of licenses.data">
+            <ng-container *ngFor="let license of licenses">
               <tr>
                 <td></td>
                 <td>
                   <!-- Display license name -->
-                  {{ license.licenseName }}
+                  {{ license.lName }}
                 </td>
                 <td>{{ license.price }}</td>
-                <td style="color: rgb(1, 150, 43);">Purchased</td>
+                <td >{{license.desc}}</td>
               </tr>
             </ng-container>
           
@@ -40,6 +41,7 @@
                 </select>
               </td>
               <td style="width: 20%;">{{ getPrice() }}</td> <!-- Display price dynamically -->
+              <td style="width: 20%;">{{ getDesc() }}</td> <!-- Display price dynamically -->
               <td>
                 <button style="background-color: darkgreen; color: white; width: 100px; height: 40px; font-size: 16px;" (click)="buyLicense()" [disabled]="!selectedOption">Buy</button>
               </td>

@@ -7,6 +7,11 @@ import { LoginComponent } from './component/login/login.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CreateAccountComponent } from './create-account/create-account.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { UserDetailsComponent } from './component/user-details/user-details.component';
 
 
 @NgModule({
@@ -14,6 +19,11 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    CreateAccountComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    NavbarComponent,
+    UserDetailsComponent,
 
   ],
   imports: [

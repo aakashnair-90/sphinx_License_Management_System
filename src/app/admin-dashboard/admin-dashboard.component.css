@@ -14,12 +14,12 @@ table {
   }
   table td,
   table th {
-    padding-left: 8px;
-    font-size: 30px;
+    padding-left: 50px;
+    font-size: 20px;
   }
   table thead tr {
     height: 60px;
-    background: #dc7bd9;
+    background: #fdaa4c;
     font-size: 16px;
   }
   table tbody tr {

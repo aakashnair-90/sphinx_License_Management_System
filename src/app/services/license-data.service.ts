@@ -6,10 +6,27 @@ import {HttpClient} from '@angular/common/http'
 export class LicenseDataService {
 
   constructor(private http:HttpClient) { }
-  getlicenses(){
-    return this.http.get("http://localhost:8085/api/licenses")
-  }
-  postLicense(licenseData: any) { // Assuming licenseData is the data you want to send
-    return this.http.post("http://localhost:8085/api/license/add", licenseData);
+  getLicenses(id: any) {
+    return this.http.get(`http://localhost:8080/user/${id}/getLicenses`);
 }
+
+  postLicense(id: number,licenseData: any) { // Assuming licenseData is the data you want to send
+    return this.http.post(`http://localhost:8080/user/${id}/license`, licenseData);
+}
+
+getUsers() {
+  return this.http.get('http://localhost:8080/getUsers');
+}
+
+getUser(id: any){
+  return this.http.get(`http://localhost:8080/getUser/${id}`);
+}
+
+deleteUser(id: number) {
+  return this.http.delete(`http://localhost:8080/deleteUser/${id}`);
+}
+deleteLicense(userId: number, licenseId: number) {
+  return this.http.delete(`http://localhost:8080/user/${userId}/license/${licenseId}`);
+}
+
 }

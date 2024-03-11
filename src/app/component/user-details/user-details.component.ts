@@ -23,6 +23,12 @@ export class UserDetailsComponent {
         this.user = data;
       });
     });
+    this.user = {
+      name: 'Initial Name',
+      username: 'Initial Username',
+      password: 'Initial Password',
+      licenses: [] // Assuming licenses is an array
+    };
   }
 
   deleteLicense(licenseId:number){
@@ -31,5 +37,22 @@ export class UserDetailsComponent {
       window.location.reload(); // Reload the page
     });
   }
+
+  // updateaUser(id: number, updatedUserData: any) {
+  //   this.licenseData.updateUser(id, updatedUserData).subscribe(() => {
+  //     // Optionally, you can handle success response here
+  //     console.log('User updated successfully');
+  //   }, error => {
+  //     // Optionally, you can handle error response here
+  //     console.error('Failed to update user', error);
+  //   });
+  // }
   
+  updateaUser() {
+    this.licenseData.updateUser(this.user.id, this.user).subscribe(() => {
+      console.log('User updated successfully');
+    }, error => {
+      console.error('Failed to update user', error);
+    });
+  }
 }

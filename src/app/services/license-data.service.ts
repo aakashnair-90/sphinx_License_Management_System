@@ -25,6 +25,10 @@ getUser(id: any){
 deleteUser(id: number) {
   return this.http.delete(`http://localhost:8080/deleteUser/${id}`);
 }
+
+updateUser(id: number, updatedUser: any) {
+  return this.http.put(`http://localhost:8080/updateUser/${id}`, updatedUser);
+}
 deleteLicense(userId: number, licenseId: number) {
   return this.http.delete(`http://localhost:8080/user/${userId}/license/${licenseId}`);
 }

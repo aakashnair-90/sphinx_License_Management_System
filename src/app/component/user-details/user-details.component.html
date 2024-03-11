@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<app-navbar2></app-navbar2>
 <div class="container">
 <h2 style="margin-left: 38%; font-size: 20px;">User Details</h2>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -6,16 +6,17 @@
     <form>
 
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" [(ngModel)]="user.name" disabled="true">
+        <input type="text" id="name" name="name" [(ngModel)]="user.name">
 
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" [(ngModel)]="user.username" disabled="true">
+        <input type="text" id="username" name="username" [(ngModel)]="user.username" >
         
         <label for="username">Password</label>
-        <input type="text" id="password" name="password" [(ngModel)]="user.password" disabled="true">
+        <input type="text" id="password" name="password" [(ngModel)]="user.password" >
 
         <label for="name">No. of licenses</label>
-        <input type="text" id="noOfLicense" name="noOfLicense" [(ngModel)]="user.licenses.length" disabled="true">
+        <input type="text" id="noOfLicense" name="noOfLicense" [(ngModel)]="user.licenses.length" disabled="true" >
+        <button class="btn btn-success" style="height: 70px; width: 150px; font-size: large;" (click)="updateaUser()">UPDATE</button>
       </form>
   </div>
   <div class="row">

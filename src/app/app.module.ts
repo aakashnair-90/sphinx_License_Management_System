@@ -12,6 +12,7 @@ import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { UserDetailsComponent } from './component/user-details/user-details.component';
+import { Navbar2Component } from './navbar2/navbar2.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { UserDetailsComponent } from './component/user-details/user-details.comp
     AdminDashboardComponent,
     NavbarComponent,
     UserDetailsComponent,
+    Navbar2Component,
 
   ],
   imports: [

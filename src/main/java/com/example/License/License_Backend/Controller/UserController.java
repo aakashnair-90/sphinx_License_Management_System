@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -50,12 +51,32 @@ public class UserController {
 	        return optionalUser.orElse(null); 
 	    }
 	  
+	  
+	  
 	  @DeleteMapping("/deleteUser/{id}")
 	    public ResponseEntity<?> deleteUser(@PathVariable int id) {
 	        
 	        if (repository.existsById(id)) {
 	            repository.deleteById(id);
 	            return ResponseEntity.ok().body("{\"success\": true, \"message\": \"User deleted successfully\"}");
+	        } else {
+	            return ResponseEntity.badRequest().body("{\"success\": false, \"message\": \"User not found\"}");
+	        }
+	    }
+	  
+	  
+	  @PutMapping("/updateUser/{id}")
+	    public ResponseEntity<?> updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+	        Optional<User> optionalUser = repository.findById(id);
+	        if (optionalUser.isPresent()) {
+	            User user = optionalUser.get();
+	            user.setName(updatedUser.getName()); 
+	            user.setUsername(updatedUser.getUsername());
+	            user.setPassword(updatedUser.getPassword());
+	           
+
+	            repository.save(user);
+	            return ResponseEntity.ok().body("{\"success\": true, \"message\": \"User updated successfully\"}");
 	        } else {
 	            return ResponseEntity.badRequest().body("{\"success\": false, \"message\": \"User not found\"}");
 	        }
